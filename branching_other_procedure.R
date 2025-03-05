@@ -5,6 +5,7 @@ procedures = read_csv("query_tool_export_2025-03-05_124414.csv")
 
 branching_glue = '[op_procedure_1] = "{record}" or'
 
+# delete the last or from the file manually
 procedures %>% 
   filter(str_detect(value, "Other")) %>% 
   mutate(logic = glue(branching_glue)) %>% 
